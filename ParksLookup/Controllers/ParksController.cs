@@ -41,7 +41,7 @@ namespace ParksLookup.Controllers
 
             if (parkLocation != null)
             {
-                query = query.Where(entry => entry.ParkLocation.Contains(parkLocation));
+                query = query.Where(entry => entry.ParkLocation == parkLocation);
             }
 
             return query.ToList();
