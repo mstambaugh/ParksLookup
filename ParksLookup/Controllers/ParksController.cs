@@ -18,10 +18,33 @@ namespace ParksLookup.Controllers
         }
 
         // GET api/parks
+        // [HttpGet]
+        // public ActionResult<IEnumerable<Park>> Get()
+        // {
+        //     return _db.Parks.ToList();
+        // }
+        // GET api/parks
         [HttpGet]
-        public ActionResult<IEnumerable<Park>> Get()
+        public ActionResult<IEnumerable<Park>> Get(string parkName, string parkType, string parkLocation)
         {
-            return _db.Parks.ToList();
+            var query = _db.Parks.AsQueryable();
+
+            if (parkName != null)
+            {
+                query = query.Where(entry => entry.ParkName == parkName);
+            }
+
+            if (parkType != null)
+            {
+                query = query.Where(entry => entry.ParkType == parkType);
+            }
+
+            if (parkLocation != null)
+            {
+                query = query.Where(entry => entry.ParkLocation.Contains(parkLocation));
+            }
+
+            return query.ToList();
         }
 
         // POST api/parks

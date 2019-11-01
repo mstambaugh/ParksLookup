@@ -7,7 +7,7 @@ namespace ParksLookup.Models
         
         public string ParkType { get; set; }
 
-        public string ParkLocation { get; set; }
+        public string[] ParkLocation { get; set; }
         public string ParkSize { get; set; }
         public string ParkFounded { get; set; }
 
