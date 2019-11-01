@@ -15,10 +15,12 @@ namespace ParksLookup.Models
         {
             builder.Entity<Park>()
                 .HasData(
-                    new Park { ParkId = 1, ParkName = "YellowStone", ParkType = "National", ParkLocation = "Wyoming, Montana, and Idaho", ParkSize = "3,468 sq miles", ParkFounded = "1872" },
+                    new Park { ParkId = 1, ParkName = "Yellowstone", ParkType = "National", ParkLocation = "Wyoming, Montana, and Idaho", ParkSize = "3,468 sq miles", ParkFounded = "1872" },
                     new Park { ParkId = 2, ParkName = "Zion", ParkType = "National", ParkLocation = "Southern Utah", ParkSize = "229 sq miles", ParkFounded = "1919" },
                     new Park { ParkId = 3, ParkName = "Glacier", ParkType = "National", ParkLocation = "Northwestern Montana", ParkSize = "16,000 sq miles", ParkFounded = "1910" },
-                    new Park { ParkId = 4, ParkName = "YellowStone", ParkType = "National", ParkLocation = "Wyoming, Montana, and Idaho", ParkSize = "3,468 sq miles", ParkFounded = "1872" }
+                    new Park { ParkId = 4, ParkName = "Cape Disappointment", ParkType = "State", ParkLocation = "Washington", ParkSize = "2,023 sq acres", ParkFounded = "1872" },
+                    new Park { ParkId = 5, ParkName = "Wallace Falls", ParkType = "State", ParkLocation = "Washington", ParkSize = "1,380 sq acres", ParkFounded = "1872" },
+                    new Park { ParkId = 6, ParkName = "Rooster Rock", ParkType = "State", ParkLocation = "Oregon", ParkSize = "812 sq acres", ParkFounded = "1937" }
                 );
         }
     }
