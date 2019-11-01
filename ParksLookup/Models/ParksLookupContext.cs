@@ -10,7 +10,7 @@ namespace ParksLookup.Models
         }
 
         public DbSet<Park> Parks { get; set; }
-
+        public DbSet<NativeSpecies> NativeSpecies { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<Park>()
@@ -21,6 +21,10 @@ namespace ParksLookup.Models
                     new Park { ParkId = 4, ParkName = "Cape Disappointment", ParkType = "State", ParkLocation = "Washington", ParkSize = "2,023 sq acres", ParkFounded = "1872" },
                     new Park { ParkId = 5, ParkName = "Wallace Falls", ParkType = "State", ParkLocation = "Washington", ParkSize = "1,380 sq acres", ParkFounded = "1872" },
                     new Park { ParkId = 6, ParkName = "Rooster Rock", ParkType = "State", ParkLocation = "Oregon", ParkSize = "812 sq acres", ParkFounded = "1937" }
+                );
+            builder.Entity<NativeSpecies>()
+                .HasData(
+                    new NativeSpecies { NativeSpeciesId = 1, Kingdom = "Animalia", Class = "Mammalia", Species = "Ursa americanus", CommonName = "American Black Bear", SpeciesDescription = "American black bears are omnivores, with diets varying greatly depending on season and location. They typically live in largely forested areas, but do leave forests in search of food. Sometimes they become attracted to human communities because of the immediate availability of food. The American black bear is the world's most common bear species.", ConservationStatus = "least concern" }             
                 );
         }
     }
