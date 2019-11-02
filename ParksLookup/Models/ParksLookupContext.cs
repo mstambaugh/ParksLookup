@@ -11,7 +11,7 @@ namespace ParksLookup.Models
 
         public DbSet<Park> Parks { get; set; }
         public DbSet<NativeSpecies> NativeSpecies { get; set; }
-        public ParksLookupContext(DbContextOptions options) : base(options) { }
+        
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<Park>()
@@ -25,7 +25,7 @@ namespace ParksLookup.Models
                 );
             builder.Entity<NativeSpecies>()
                 .HasData(
-                    new NativeSpecies { NativeSpeciesId = 1, Kingdom = "Animalia", Class = "Mammalia", Species = "Ursa americanus", CommonName = "American Black Bear", SpeciesDescription = "American black bears are omnivores, with diets varying greatly depending on season and location. They typically live in largely forested areas, but do leave forests in search of food. Sometimes they become attracted to human communities because of the immediate availability of food. The American black bear is the world's most common bear species.", ConservationStatus = "least concern" }             
+                    new NativeSpecies { NativeSpeciesId = 1, ParkId = 1, Kingdom = "Animalia", Class = "Mammalia", Species = "Ursa americanus", CommonName = "American Black Bear", SpeciesDescription = "American black bears are omnivores, with diets varying greatly depending on season and location. They typically live in largely forested areas, but do leave forests in search of food. Sometimes they become attracted to human communities because of the immediate availability of food. The American black bear is the world's most common bear species.", ConservationStatus = "least concern" }             
                 );
         }
     }

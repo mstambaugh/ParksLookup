@@ -32,7 +32,7 @@ namespace ParksLookup.Controllers
             return _db.NativeSpecies.FirstOrDefault(entry => entry.NativeSpeciesId == id);
         }
         [HttpGet]
-        public ActionResult<IEnumerable<NativeSpecies>> Get(string commonName, string conservationStatus)
+        public ActionResult<IEnumerable<NativeSpecies>> Get(string commonName, string conservationStatus, string parkName)
         {
             var query = _db.NativeSpecies.AsQueryable();
 
@@ -44,7 +44,12 @@ namespace ParksLookup.Controllers
             {
                 query = query.Where(entry => entry.ConservationStatus == conservationStatus);
             }
-            
+            if (parkName != null)
+            {
+                query = query.Where(entry => entry.Park.ParkName == parkName);
+            }
+
+
             return query.ToList();
         }
         [HttpPut("{id}")]
