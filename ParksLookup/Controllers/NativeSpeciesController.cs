@@ -21,10 +21,11 @@ namespace ParksLookup.Controllers
         public void Post([FromBody] NativeSpecies nativeSpecies)
         {
             _db.NativeSpecies.Add(nativeSpecies);
-            Park foundPark = _db.Parks.FirstOrDefault(game => game.ParkId == nativeSpecies.ParkId);
+            Park foundPark = _db.Parks.FirstOrDefault(park => park.ParkId == nativeSpecies.ParkId);
             foundPark.NativeSpecies.Add(nativeSpecies);
             _db.SaveChanges();
         }
+        
         [HttpGet("{id}")]
         public ActionResult<NativeSpecies> Get(int id)
         {

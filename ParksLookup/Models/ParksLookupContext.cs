@@ -11,7 +11,7 @@ namespace ParksLookup.Models
 
         public DbSet<Park> Parks { get; set; }
         public DbSet<NativeSpecies> NativeSpecies { get; set; }
-        public DbSet<NativeSpeciesPark> NativeSpeciesPark { get; set; }
+        public ParksLookupContext(DbContextOptions options) : base(options) { }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<Park>()
